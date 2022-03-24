@@ -1,12 +1,22 @@
 version: "3.8"
 services:
+  nginx:
+    image: nginx:latest
+    networks:
+      - "animal-net"  
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+    volumes:
+      - type: bind
+      source: ./nginx.conf
+      target: /etc/nginx/nginx.conf
+    depends_on:
+      - "front-end"
   front-end: 
     image: numphries/animal-frontend:latest
     build: ./front-end
-    ports: 
-      - published: 80
-        target: 5000
-        protocol: tcp
     networks:
       - "animal-net"
     depends_on:
@@ -39,3 +49,4 @@ networks:
   animal-net:
 volumes:
   animal-vol:
+    #driver: overlay
