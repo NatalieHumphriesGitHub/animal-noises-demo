@@ -4,3 +4,4 @@ itsdangerous==2.0.1
 requests
 flask_sqlalchemy
 pymysql
+Jinja2==3.0.3
