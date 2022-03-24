@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  front-end: 
+    image: numphries/animal-frontend:latest
+    build: ./front-end
+    ports: 
+      - published: 80
+        target: 5000
+        protocol: tcp
+    networks:
+      - "animal-net"
+  animal-api:
+    image: numphries/animal-api:latest
+    build: ./animal-api
+    networks:
+      - "animal-net"
+  noise-api:
+    image: numphries/noise-api:latest
+    build: ./noise-api
+    networks:
+      - "animal-net"
+networks:
+  animal-net:
