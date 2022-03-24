@@ -1,4 +1,5 @@
-from application import app, routes
+from application import app
+import application.routes
 from flask_testing import TestCase
 from unittest.mock import patch
 from flask import url_for
@@ -7,7 +8,6 @@ from flask import url_for
 class TestBase(TestCase):                   #this sets up the app
     def create_app(self):
         return app
-
 
 class TestView(TestBase):
 
