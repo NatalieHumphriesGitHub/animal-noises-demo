@@ -7,3 +7,4 @@ pytest
 pytest-cov
 requests
 requests_mock
+Jinja2==3.0.3
