@@ -15,7 +15,7 @@ services:
     depends_on:
       - "front-end"
   front-end: 
-    image: numphries/animal-frontend:latest
+    image: numphries/animal-frontend:v2
     build: ./front-end
     networks:
       - "animal-net"
